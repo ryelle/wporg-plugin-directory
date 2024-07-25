@@ -28,7 +28,7 @@
 <!-- /wp:wporg/local-navigation-bar -->
 
 <?php
-	$lang_suggest_endpoint = rest_url( '/plugins/v2/locale-banner' );
+	$lang_suggest_endpoint = rest_url( '/wporg-plugins/v1/locale-banner' );
 	if ( is_singular( 'plugin' ) ) {
 		$lang_suggest_endpoint = add_query_arg( 'plugin_slug', get_queried_object()->post_name, $lang_suggest_endpoint );
 	}
