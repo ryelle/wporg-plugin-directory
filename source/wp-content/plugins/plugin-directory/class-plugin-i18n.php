@@ -489,6 +489,13 @@ class Plugin_I18n {
 	public function get_translations( $plugin_slug ) {
 		global $wpdb;
 
+		// On local envs, return early to avoid calling `get_sites`.
+		// If `[wporg-plugins-developers]` or the Meta widget are refactored,
+		// this could be updated to return mock locales.
+		if ( 'local' === wp_get_environment_type() ) {
+			return array();
+		}
+
 		require_once GLOTPRESS_LOCALES_PATH;
 
 		// Get the active language packs of the plugin.

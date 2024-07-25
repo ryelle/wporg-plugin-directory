@@ -11,3 +11,12 @@ require_once __DIR__ . '/pub/locales.php';
 require_once __DIR__ . '/pub/wporg-seo.php';
 
 require_once WPMU_PLUGIN_DIR . '/wporg-mu-plugins/mu-plugins/loader.php';
+
+/**
+ * Mock for multisite's `get_site()` function.
+ */
+function get_site() {
+	return (object) array(
+		'path' => '/plugins',
+	);
+}

@@ -98,6 +98,10 @@ class Tools {
 			return [];
 		}
 
+		if ( 'local' === wp_get_environment_type() ) {
+			return array( 'admin' );
+		}
+
 		$committers = wp_cache_get( $post->post_name, 'plugin-committers' );
 
 		if ( false === $committers || ! $use_cache ) {
